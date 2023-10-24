@@ -8,16 +8,16 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, dis
 
   useEffect(() => {
     // Try to read the approval status from Local Storage when the component mounts
-    const approved = localStorage.getItem(id.toString());
+    const approved = localStorage.getItem(id.toString())
     if (approved !== null) {
-      setIsChecked(approved === "true");
+      setIsChecked(approved === "true")
     }
-  }, []);
+  }, [id])
 
   const handleApproval = () => {
     console.log("hadnling approval")
-    const newApprovalStatus = !isChecked;
-    localStorage.setItem(id.toString(), newApprovalStatus.toString()); // Update Local Storage
+    const newApprovalStatus = !isChecked
+    localStorage.setItem(id.toString(), newApprovalStatus.toString()) // Update Local Storage
     setIsChecked(newApprovalStatus)
     onChange(newApprovalStatus)
   }
